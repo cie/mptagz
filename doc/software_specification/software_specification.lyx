@@ -1,0 +1,691 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language magyar
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Az alkalmazott szoftvertechnológiai eszközök imsertetése
+\end_layout
+
+\begin_layout Standard
+Egy rövid összefoglaló az alkalmazott szoftverekről:
+\end_layout
+
+\begin_layout Description
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features>
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Modellező
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Umbrello
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Szövegszerkesztő
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LyX + LaTeX
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Verziókezelő
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Git
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+IDE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eclipse + Eclim + Vim
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Szkriptek
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Make + Bash
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Egységteszt rendszer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+JUnit
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Integrációs teszt-rendszer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cucumber
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+A forrásfa szerkezete
+\end_layout
+
+\begin_layout Standard
+A következő mappákat tartalmazza a forráskönyvtár:
+\end_layout
+
+\begin_layout Description
+bin A lefordított fájlok
+\end_layout
+
+\begin_layout Description
+doc A dokumentáció
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+development_plan A fejlesztői dokumentáció és rendszerterv
+\end_layout
+
+\begin_layout Description
+user_manual A felhasználói kézikönyv
+\end_layout
+
+\end_deeper
+\begin_layout Description
+features Integrációs tesztek
+\end_layout
+
+\begin_layout Description
+scripts Segédszkriptek
+\end_layout
+
+\begin_layout Description
+src A forráskód
+\end_layout
+
+\begin_layout Description
+tests Egységtesztek
+\end_layout
+
+\begin_layout Description
+uml A modell
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+src A modellből közvetlenül generált üres kód
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+A dokumentáció
+\end_layout
+
+\begin_layout Standard
+Két dokumentáció készül, a fejlesztői és a felhasználói.
+ Mindkét dokumentum LyX-ben készül, onnan exportálunk PDF-be.
+ A doc/development_plan/ ill.
+ a doc/user_manual/ mappában vannak.
+\end_layout
+
+\begin_layout Subsection
+Modellezés
+\end_layout
+
+\begin_layout Standard
+Az UML modellezéshez Umbrello-t haszálunk.
+ Innen exportájluk egyrészt az ábrákat a fejlesztői dokumentációhoz EPS
+ formátumba.
+ Az exportált ábrák az uml/ mappába kerülnek.
+\end_layout
+
+\begin_layout Standard
+Másrészt pedig szintén Umbrello-val generáljuk a kód vázát.
+ A kód vázát az uml/src/ mappába exportáljuk.
+ Ez külön van verziókövetve a főkönyvtártól.
+ Ennek a mappának egy branch-e az src/ mappa, ahol a fejlesztést végezzük.
+ Amikor a modell módosul, az uml/src/ mappában commit-olunk, és a módosítást
+ merge-eljük az src/ mappába.
+ Ezt a munkafolyamatot fogja össze a scripts/merge_model szkript.
+\end_layout
+
+\begin_layout Subsection
+Tesztelés
+\end_layout
+
+\begin_layout Standard
+Kétféle automatikus tesztelést végzünk: Az egységteszteléshez JUint-ot haszálunk
+, az integrációs tesztekhez pedig Cucumber-t.
+\end_layout
+
+\begin_layout Standard
+Először az integrációs teszteket készítjük el.
+ A features/ mappában találhatóak, csomagok szerint rendszerezve.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Ide kell még írni
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Az egységteszteket a tests/ mappában helyezzük el, szintén csomagok szerint.
+\end_layout
+
+\begin_layout Section
+A programozási nyelv és a futás idejű könyvtárak megválasztása
+\end_layout
+
+\begin_layout Standard
+A következő programokra esett a választásunk:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\lang english
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features>
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Programozási nyelv
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Java
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Grafikus felület
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SWT + Eclipse RCP
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Adatbáziskezelés
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SQLite
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+vagy nem
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Fájlkezelés
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eclipse Resources Framework
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Hanglejátszás
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Képkezelés
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Az programozási nyelv és grafikus felület kiválasztásánál a platformfüggetlenség
+ volt a szempont.
+ A másik lehetőség lett volna C++ és a Google Chrome grafikus csomagja.
+ Viszont C++-szal lényegesen költségesebb lett volna a platformfüggetlenséget
+ biztosítani.
+\end_layout
+
+\begin_layout Standard
+A fájlkezelő rendszerből azért nem a Java által biztosított fájlkezelést
+ használjuk, mert az Eclipse Resources Framework számos olyan szolgáltatást
+ biztosít, ami a szoftver későbbi fejlesztésekor hasznos lehet, pl.:
+\end_layout
+
+\begin_layout Itemize
+virtuális fájlrendszer, a fájloknak nem feltétlenül kell ott létezni, ahol
+ látszanak
+\end_layout
+
+\begin_layout Itemize
+értesítés a módosításokról
+\end_layout
+
+\begin_layout Itemize
+régi verziók mentése
+\end_layout
+
+\begin_layout Standard
+Az adatbáziskezelő rendszer kiválasztásánál a fő szempont a sebesség és
+ a kis méret volt.
+\end_layout
+
+\begin_layout Section
+A rendszer szerkezete
+\end_layout
+
+\begin_layout Standard
+A csomagok szerkezete:
+\end_layout
+
+\begin_layout Description
+dm az adatmodell
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+basic az alapvető (dokumentumtípustól független) adatmodell
+\end_layout
+
+\begin_layout Description
+music a zenékhez tartozó adatmodell
+\end_layout
+
+\begin_layout Description
+photo a képekhez tartozó adatmodell
+\end_layout
+
+\end_deeper
+\begin_layout Description
+gui a felhasználói felület
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+basic az alapvető (dokumentumtípustól független) felhasználói felület
+\end_layout
+
+\begin_layout Description
+music a zenékhez kapcsolódó felhasználói felület
+\end_layout
+
+\begin_layout Description
+photo a képekhez kapcsolódó felhasználói felület
+\end_layout
+
+\begin_layout Description
+main a program különböző funkcióit összefogó felület
+\end_layout
+
+\end_deeper
+\begin_layout Description
+porting az exportálást/importálást végző rész
+\end_layout
+
+\begin_layout Description
+query a keresést és lekérdezést végző rész
+\end_layout
+
+\begin_layout Standard
+A rendszerünket három fő rétegre bonthatjuk: az adatmodell, az adatelérés,
+ ill.
+ a felhasználói felület.
+ Az adatmodell az adatok hozzáférését biztosítja, az adatelérés pedig tartalmazz
+a azokat a programrészeket, amelyek az adatokon valamilyen komplex műveletet
+ végeznek (importálás, exportálás, lekérdezés, keresés).
+ Az adatmodell a dm, a felhasználói felület a gui csomagban van.
+\end_layout
+
+\begin_layout Standard
+Mind a dm, mind a gui csomagban külön csomagba tettük a képekkel és a zenékkel
+ foglalkozó részeket, hogy esetleg később le lehessen választani, vagy újabb
+ dokumentumtípusokkal bővíteni.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/cie/Egyetem/Szoftvertechnologia/kabrabi/uml/package diagram.eps
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A csomagok szerkezete és függései
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Az időterv és fejlesztési modell
+\end_layout
+
+\begin_layout Standard
+Az objektumorientált paradigmát fogjuk használni, és tesztvezérelt fejlesztést.
+ A fejlesztés menetére a V-modellt használjuk, az időbeosztás ez lesz:
+\end_layout
+
+\begin_layout Itemize
+1–4.
+ hét: tervezés és tesztek írása
+\end_layout
+
+\begin_layout Itemize
+5–6.
+ hét: implementáció és statikus tesztelés
+\end_layout
+
+\begin_layout Itemize
+7–10.
+ hét: dinamikus tesztelés
+\end_layout
+
+\begin_layout Standard
+Az első négy hét között a következőképpen osztjuk szét a tervezést:
+\end_layout
+
+\begin_layout Enumerate
+A kezelt adatok specifikálása, a szoftver csomagokra bontása
+\end_layout
+
+\begin_layout Enumerate
+A felhasználói esetek specifikálása, a felhasználói felület dinamikus működése
+ és statikus szerkezete
+\end_layout
+
+\begin_layout Enumerate
+Az adatmodell és az adatelérés publikus interfésze, integrációs tesztek
+ elkészítése
+\end_layout
+
+\begin_layout Enumerate
+Rendszertesztek elkészítése
+\end_layout
+
+\end_body
+\end_document

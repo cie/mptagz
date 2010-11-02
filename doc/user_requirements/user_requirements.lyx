@@ -1,0 +1,190 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language magyar
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section
+A szoftver célja
+\end_layout
+
+\begin_layout Standard
+Készítsünk programot, ami képeket, zenéket, és egyéb fájlokat tud kezelni,
+ kategorizálni és rendezni.
+ A következő szolgáltatásokat nyújtsa:
+\end_layout
+
+\begin_layout Itemize
+Lehessen a fájlokat a fájlrendszerben böngészni.
+ Lehessen a képeket megnézni, a zenéket meghallgatni.
+\end_layout
+
+\begin_layout Itemize
+Lehessen a fájlokat kategorizálni.
+ A kategorizálás különböző szempontok szerint történjen: A képekről tartsa
+ nyilván, hogy mikor, hol, milyen alkalomból készültek, kik vannak rajtuk.
+ A zenékről a szám címét, előadót, albumot, kiadás évét, szám sorszámát
+ és a műfajt.
+ Lehessen saját kategorizálási szempontokat is létrehozni.
+ Ahol van értelme, a szempontok hierarchikusak legyenek, pl.
+ hely (Magyarország > Budapest > A házunk), idő (2010 > június), stb.
+ A felhasználó által létrehozott kategóriák is legyen hierarchikusak.
+\end_layout
+
+\begin_layout Itemize
+Lehessen a fájlokat a kategóriák szerint böngészni.
+ Lehessen több kategóriát keverni, például lehessen a képeket év, azon belül
+ pedig alkalom szerint csoportosítva megjeleníteni.
+\end_layout
+
+\begin_layout Itemize
+Lehessen a fájlokra a kategóriák nevei alapján keresni.
+\end_layout
+
+\begin_layout Itemize
+Lehessen a képekből/zenékből saját albumokat összeállítani.
+ Lehessen egy mappaszerkezetbe exportálni úgy, hogy valamelyik kategória
+ vagy kategóriák alapján legyen a mappa tartalma rendszerezve.
+\end_layout
+
+\begin_layout Itemize
+Az exportált albumokba kerüljön bele minden fontos metaadat (a kategóriák),
+ és lehessen ezt egy másik számítógépen futó programba importálni.
+\end_layout
+
+\begin_layout Itemize
+Lehessen a számítógépen több helyre szétszórt képeket/zenéket/fájlokat is
+ egyszerre kezelni, kategorizálni, majd egy helyre áthelyezni, megadott
+ szempontok szerint rendszerezve.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/cie/Egyetem/Szoftvertechnologia/kabrabi/uml/use case diagram.eps
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A felhasználói esetek diagramja
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Környezeti követelmények
+\end_layout
+
+\begin_layout Subsection
+Adattárolás
+\end_layout
+
+\begin_layout Standard
+A program a kategóriákat, ill.
+ a kategóriák fájlokhoz rendelését egy adatbázisban tárolja.
+ Album exportálásakor tudja az albumra vonatkozó részeket az album mappájába
+ exportálni, és másik gépen futó másik adatbázisba a benne lévő fájlokkal
+ együtt importálni.
+ Az adattárolás formátumára nincs megkötés.
+\end_layout
+
+\begin_layout Subsection
+Hardver és operációs rendszer
+\end_layout
+
+\begin_layout Standard
+A program működjön Linuxon és Windowson is.
+ Lehessen a számítógépre telepíteni úgy, hogy minden felhasználó egy közös
+ adatbázist használjon.
+ Lehessen pendrive-ra is telepíteni úgy, hogy minden számítógéphez külön
+ adatbázist lehessen létrehozni a pendrive-on.
+\end_layout
+
+\begin_layout Subsection
+Felhasználói felület
+\end_layout
+
+\begin_layout Standard
+A felhasználói felület legyen egyszerű és könnyen kezelhető, lehetőség szerint
+ majdnem annyira, mint a Google Chrome ;).
+\end_layout
+
+\begin_layout Section
+Minőségi mutatók
+\end_layout
+
+\begin_layout Standard
+Legyen a szoftver megbízható.
+ Belső hibák ne legyenek benne, semmiképpen se adjon a felhasználó számára
+ értelmezhetetlen hibaüzeneteket.
+ Legyen gyors.
+\end_layout
+
+\begin_layout Section
+A fejlesztés menete
+\end_layout
+
+\begin_layout Standard
+A szoftver elkészítésére kb.
+ 10 hetünk van, és kb.
+ 100 munkaórát fog igénybevenni, egy programozó doglozik rajta, és két tesztelő
+ végzi a rendszertesztelést.
+\end_layout
+
+\end_body
+\end_document
