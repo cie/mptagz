@@ -235,7 +235,11 @@ doc A dokumentáció
 
 \begin_deeper
 \begin_layout Description
-development_plan A fejlesztői dokumentáció és rendszerterv
+user_requirements A követelményspecifikáció
+\end_layout
+
+\begin_layout Description
+software_specification A rendszerterv
 \end_layout
 
 \begin_layout Description
@@ -414,7 +418,7 @@ Adatbáziskezelés
 \begin_inset Text
 
 \begin_layout Plain Layout
-SQLite
+JDBC + SQLite
 \begin_inset Note Note
 status open
 
@@ -447,6 +451,16 @@ Fájlkezelés
 
 \begin_layout Plain Layout
 Eclipse Resources Framework
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+vagy nem
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -468,6 +482,15 @@ Hanglejátszás
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+?
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -490,6 +513,15 @@ Képkezelés
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+?
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -507,7 +539,7 @@ Képkezelés
 Az programozási nyelv és grafikus felület kiválasztásánál a platformfüggetlenség
  volt a szempont.
  A másik lehetőség lett volna C++ és a Google Chrome grafikus csomagja.
- Viszont C++-szal lényegesen költségesebb lett volna a platformfüggetlenséget
+ Viszont C++-szal lényegesen időigényesebb lett volna a platformfüggetlenséget
  biztosítani.
 \end_layout
 
@@ -544,7 +576,12 @@ A csomagok szerkezete:
 \end_layout
 
 \begin_layout Description
-dm az adatmodell
+dm az adatmodell (
+\emph on
+Data Model
+\emph default
+).
+ Az adatok közvetlen hozzáférését, betöltését és mentését biztosítja.
 \end_layout
 
 \begin_deeper
@@ -562,7 +599,30 @@ photo a képekhez tartozó adatmodell
 
 \end_deeper
 \begin_layout Description
-gui a felhasználói felület
+da az adatelérés (
+\emph on
+Data Access
+\emph default
+).
+ A bonyolultabb adatelérési műveletek ide kerülnek.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+porting az exportálást/importálást végző rész
+\end_layout
+
+\begin_layout Description
+query a keresést és lekérdezést végző rész
+\end_layout
+
+\end_deeper
+\begin_layout Description
+gui a felhasználói felület (
+\emph on
+Graphical User Interface
+\emph default
+)
 \end_layout
 
 \begin_deeper
@@ -583,24 +643,6 @@ main a program különböző funkcióit összefogó felület
 \end_layout
 
 \end_deeper
-\begin_layout Description
-porting az exportálást/importálást végző rész
-\end_layout
-
-\begin_layout Description
-query a keresést és lekérdezést végző rész
-\end_layout
-
-\begin_layout Standard
-A rendszerünket három fő rétegre bonthatjuk: az adatmodell, az adatelérés,
- ill.
- a felhasználói felület.
- Az adatmodell az adatok hozzáférését biztosítja, az adatelérés pedig tartalmazz
-a azokat a programrészeket, amelyek az adatokon valamilyen komplex műveletet
- végeznek (importálás, exportálás, lekérdezés, keresés).
- Az adatmodell a dm, a felhasználói felület a gui csomagban van.
-\end_layout
-
 \begin_layout Standard
 Mind a dm, mind a gui csomagban külön csomagba tettük a képekkel és a zenékkel
  foglalkozó részeket, hogy esetleg később le lehessen választani, vagy újabb
@@ -642,7 +684,7 @@ A csomagok szerkezete és függései
 \end_layout
 
 \begin_layout Section
-Az időterv és fejlesztési modell
+Időterv és fejlesztési modell
 \end_layout
 
 \begin_layout Standard
@@ -657,16 +699,16 @@ Az objektumorientált paradigmát fogjuk használni, és tesztvezérelt fejleszt
 
 \begin_layout Itemize
 5–6.
- hét: implementáció és statikus tesztelés
+ hét: implementáció, egység- és integrációs tesztelés
 \end_layout
 
 \begin_layout Itemize
 7–10.
- hét: dinamikus tesztelés
+ hét: rendszertesztelés
 \end_layout
 
 \begin_layout Standard
-Az első négy hét között a következőképpen osztjuk szét a tervezést:
+Részletesen hetenként:
 \end_layout
 
 \begin_layout Enumerate
@@ -685,6 +727,22 @@ Az adatmodell és az adatelérés publikus interfésze, integrációs tesztek
 
 \begin_layout Enumerate
 Rendszertesztek elkészítése
+\end_layout
+
+\begin_layout Enumerate
+Adatmodell és adatelérés implementációja
+\end_layout
+
+\begin_layout Enumerate
+Felhasználói felület implementáció
+\end_layout
+
+\begin_layout Section
+A kezelt adatok specifikálása
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body
