@@ -1,6 +1,14 @@
 #!/bin/bash
 
 cd $(dirname "$0")/../uml/src
+if [ "$1" = "-a" ]; then 
+    rm * -R
+    echo Generate code and press enter
+    read || exit
+fi
+for cmd in ../scripts/*; do
+    find -name '*.java' | (while read i; do "$cmd" "$i"; done)
+done
 git add .
 git commit
 cd ../../src
