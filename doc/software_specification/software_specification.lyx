@@ -160,7 +160,7 @@ Szkriptek
 \begin_inset Text
 
 \begin_layout Plain Layout
-Make + Bash
+Make + Bash + Ruby
 \end_layout
 
 \end_inset
@@ -303,6 +303,14 @@ Másrészt pedig szintén Umbrello-val generáljuk a kód vázát.
  Amikor a modell módosul, az uml/src/ mappában commit-olunk, és a módosítást
  merge-eljük az src/ mappába.
  Ezt a munkafolyamatot fogja össze a scripts/merge_model szkript.
+\end_layout
+
+\begin_layout Standard
+A kódgenerálás után és a merge-elés előtt viszont még lefuttatjuk az uml/scripts
+ mappában lévő Ruby szkripteket minden egyes generált forrásfájlra.
+ Ezzel oldjuk meg azt, hogy bizonyos típusokat átírjunk a Java-s megfelelőjére
+ (pl.
+ filename helyett java.io.File-ra).
 \end_layout
 
 \begin_layout Subsection
@@ -739,10 +747,6 @@ Felhasználói felület implementáció
 
 \begin_layout Section
 A kezelt adatok specifikálása
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body
