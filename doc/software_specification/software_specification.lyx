@@ -204,7 +204,17 @@ Integrációs teszt-rendszer
 \begin_inset Text
 
 \begin_layout Plain Layout
-Cucumber
+Cucumber + Cuke4Duke (+ JRuby
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+?
+\end_layout
+
+\end_inset
+
+)
 \end_layout
 
 \end_inset
@@ -624,6 +634,10 @@ porting az exportálást/importálást végző rész
 query a keresést és lekérdezést végző rész
 \end_layout
 
+\begin_layout Description
+date a dátum szerinti rendszerezés megvalósítása
+\end_layout
+
 \end_deeper
 \begin_layout Description
 gui a felhasználói felület (
@@ -729,8 +743,9 @@ A felhasználói esetek specifikálása, a felhasználói felület dinamikus mű
 \end_layout
 
 \begin_layout Enumerate
-Az adatmodell és az adatelérés publikus interfésze, integrációs tesztek
- elkészítése
+Az adatelérés publikus interfésze és dinamikus működése, majd ez alapján
+ az adatmodell publikus interfésze.
+ Integrációs tesztek elkészítése
 \end_layout
 
 \begin_layout Enumerate
@@ -738,15 +753,111 @@ Rendszertesztek elkészítése
 \end_layout
 
 \begin_layout Enumerate
-Adatmodell és adatelérés implementációja
+Adatmodell és adatelérés egységteszteinek elkészítése és implementációja
 \end_layout
 
 \begin_layout Enumerate
-Felhasználói felület implementáció
+Felhasználói felület implementációja
 \end_layout
 
 \begin_layout Section
 A kezelt adatok specifikálása
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/cie/Egyetem/Szoftvertechnologia/kabrabi/uml/data model class diagram.eps
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Az adatmodell osztálydiagramja
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Az adatbázist a Database osztály reprezentálja.
+ Egy képet vagy zenét a Document osztály kezel.
+ A File osztály azért van különvéve, mert lehet, hogy egy fájl több, azonos
+ példányban is jelen van a gépen, és ezt később szeretnénk tudni kezelni.
+ Viszont legalább egy fájl mindig kell, hogy tartozzon a dokumentumhoz.
+\end_layout
+
+\begin_layout Standard
+A Category és POV interfészek teszik lehetővé a képek és zenék (a továbbiakban
+ dokumentumok) kategorizálását.
+ Minden dokumentumot több szempont (pl.
+ dátum, hely, ki van a képen, stb.) szerint lehet kategorizálni, és egy szemponto
+n belül több kategória is lehet (pl.
+ több ember is van a képen).
+ A kategóriák egy szemponton belül hierarchikusak (pl.
+ a hely esetében a 
+\emph on
+Magyarország 
+\emph default
+kategória leszármazottja a 
+\emph on
+Budapest
+\emph default
+ kategória.) A POV (
+\emph on
+Point of View
+\emph default
+) interfész egy szempontot reprezentál, a Category pedig egy kategóriát.
+ Mivel pl.
+ a dátum szempontot máshogy kell kezelni, mint a többit, érdemes ezeket
+ interfészként definiálni.
+\end_layout
+
+\begin_layout Standard
+Az egyik legfontosabb kategória implementáció a Tag, ami a szabad címkézést
+ biztosítja.
+ Ezzel valósítjuk meg képek esetén a hely, ki van a képen, alkalom; zenék
+ esetében pedig az előadó és műfaj szemptontokat.
+ Ezek közül bármelyikben lehet hierarchiát kialakítani, a felhasználóra
+ bízzuk annak eldöntését, hogy van-e értelme.
+ Az említett szempontok mindegyikéhez egy-egy TagPOV objektum tartozik,
+ de saját TagPOV-ot is lehet létrehozni.
+ A TagPOV osztály vissza tudja adni a legfelső szinten lévő címkéit (ezt
+ azonban akármelyik szempontnak nem kell tudnia, pl.
+ a dátum nem tudja visszaadni az összes lehetséges évet).
+\end_layout
+
+\begin_layout Standard
+Az albumokat is kategóriaként valósítjuk meg, viszont itt nincs hierarchia
+ (nincsenek egymásba ágyazott albumok).
+ Az albumok a címkéktől főként abban különböznek, hogy csak egyetlen szempont
+ tartozik mindhez (a Database–AlbumPOV multiplicitása 1), ill.
+ hogy a dokumentumok az albumon belül sorba rendezhetők ({ordered}).
+\end_layout
+
+\begin_layout Standard
+A Document osztály kezel sztring típusú attribútumokat.
+ Ezt a kép- és zenekezelő csomagok fogják használni a képek címének, ill.
+ a zenék címének, szám sorszámának és a kiadás évének tárolására.
 \end_layout
 
 \end_body
