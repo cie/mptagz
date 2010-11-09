@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd $(dirname "$0")/../uml/src
+git add .
+git commit
+cd ../../src
+git pull
